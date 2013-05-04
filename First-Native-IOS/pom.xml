@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>nz.govt.studylink.mslapp</groupId>
+  <artifactId>MSLApp-Native-IOS</artifactId>
+  <version>1.0</version>
+  <packaging>xcode-app</packaging>
+
+  <build>
+    <plugins>
+      <plugin>
+          <configuration>
+              <configurations>
+                  <configuration>
+                      Release
+                  </configuration>
+              </configurations>
+              <sdks>
+                  <sdk>iphoneos</sdk>
+              </sdks>
+          </configuration>
+          <groupId>com.sap.prd.mobile.ios.mios</groupId>
+          <artifactId>xcode-maven-plugin</artifactId>
+          <version>1.6.1</version>
+          <extensions>true</extensions>
+      </plugin>
+    <!--     <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <version>1.7</version>
+            <executions>
+                <execution>
+					<id>default-cli</id>
+                    <phase>install</phase>
+                    <configuration>
+                        <target>
+                            <exec executable="bash">
+                                <arg value="-c"/>
+                                <arg value="xcodebuild -target PaymentcardUnitTest -configuration Debug -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk | /Users/jvh/dreamIT/tools/OCUnit2JUnit/OCUnit2JUnit-master/bin/ocunit2junit.rb"/>
+                            </exec>
+                        </target>
+                        
+                    </configuration>
+                    <goals>
+                        <goal>run</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin> -->
+    </plugins>
+  </build>
+  <properties>
+      <xcode.sourceDirectory>.</xcode.sourceDirectory>
+	  <xcode.target>MSLApp-Native-IOS</xcode.target>
+  </properties>
+</project>

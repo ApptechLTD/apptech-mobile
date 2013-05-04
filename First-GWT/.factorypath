@@ -1,0 +1,4 @@
+<factorypath>
+    <factorypathentry kind="PLUGIN" id="org.eclipse.jst.ws.annotations.core" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="/Users/rafaelalmeida/Developer/GWT/eclipse/plugins/com.google.gwt.eclipse.sdkbundle_2.4.0.v201206290132-rel-r42/gwt-2.4.0/requestfactory-apt.jar" enabled="true" runInBatchMode="false"/>
+</factorypath>

@@ -1,0 +1,141 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget"
+	xmlns:msl="urn:import:nz.govt.studylink.mslapp.client.ui">
+
+	<ui:style type="nz.govt.studylink.mslapp.client.views.DashboardViewImpl.Css">
+		.paymentsHeader {
+			background: #7DBA00;
+			color: white;
+			padding: 5px;
+			font-weight: bold;
+			padding-left: 10px;
+			margin-bottom: 6px;
+		}
+		
+		.applicationsHeader {
+			background: #7DBA00;
+			color: white;
+			padding: 5px;
+			font-weight: bold;
+			padding-left: 10px;
+			margin-bottom: 6px;
+		}
+		
+		.customList > li {
+			border: 1px solid #323232;
+			margin: 5px;
+			border-radius: 5px;
+			padding: 5px;
+		}
+		
+		.customList>img.icon {
+			border: 1px solid #323232;
+		}
+		
+		.noPaymentsMessage {
+			text-align: center;
+			color: #999;
+			padding: 10px;
+		}
+		
+		.noApplicationsMessage {
+			text-align: center;
+			color: #999;
+			padding: 10px;
+		}
+		
+		.icon {
+			margin-right: 10px;
+		}
+		
+		.icon > img {
+			width: 50px;
+		}
+		
+		.type {
+			font-weight: bold;
+		}
+		
+		.amount {
+			color: grey;
+		}
+		
+		.date {
+			color: grey;
+		}
+		
+		.provider {
+			color: grey;
+		}
+		
+		.program {
+			color: grey;
+		}
+		
+		.pending {
+			color: #005595;
+		}
+		
+		.aproved {
+			color: #7dba00;
+		}
+		
+		.declined {
+			color: red;
+		}
+
+		.loadingMessage{
+			color: #999;
+			padding-top: 10px;
+			text-align: center;
+		}
+	</ui:style>
+
+	<ui:with field="icons" type="nz.govt.studylink.mslapp.client.resources.icons.Icons"/>
+
+	<mgwt:LayoutPanel>
+
+		<!-- Header Panel -->
+		<mgwt:HeaderPanel ui:field="headerPanel">
+			<mgwt:left>
+				<msl:HeaderMenuButton ui:field="menuButton" image="{icons.menuIcon}"/>
+			</mgwt:left>
+			<mgwt:center>
+				<msl:PageTitle text="MyStudyLink" />
+			</mgwt:center>
+		</mgwt:HeaderPanel>
+
+		<!-- Lists -->
+		<mgwt:ScrollPanel ui:field="scrollPanel" scrollingEnabledX="false">
+		    <g:HTMLPanel>
+				<g:HTMLPanel addStyleNames="{style.paymentsHeader}">
+					Upcoming Payments
+				</g:HTMLPanel>
+				<msl:Loading ui:field="loadingPayments">
+				    <g:Label addStyleNames="{style.loadingMessage}">Loading Payments</g:Label>
+				</msl:Loading>
+				<g:HTMLPanel ui:field="noPaymentsMessage" addStyleNames="{style.noPaymentsMessage}">
+					No upcoming payments
+				</g:HTMLPanel>
+				<mgwt:CellList ui:field="paymentsList" addStyleNames="{style.customList}"/>
+
+				<g:HTMLPanel addStyleNames="{style.applicationsHeader}">
+					Applications
+				</g:HTMLPanel>
+				<msl:Loading ui:field="loadingApplications">
+				    <g:Label addStyleNames="{style.loadingMessage}">Loading Applications</g:Label>
+				</msl:Loading>
+				<g:HTMLPanel ui:field="noApplicationsMessage" addStyleNames="{style.noApplicationsMessage}">
+					No applications
+				</g:HTMLPanel>
+				<mgwt:CellList ui:field="applicationsList" addStyleNames="{style.customList}"/>
+			</g:HTMLPanel>
+		</mgwt:ScrollPanel>
+
+	</mgwt:LayoutPanel>
+
+</ui:UiBinder>
+ 

@@ -1,0 +1,2 @@
+serviceClass: nz.govt.studylink.mslapp.client.service.MSLService
+path: 7C5BEA166A9A20D5C13936F620CFABA1.gwt.rpc

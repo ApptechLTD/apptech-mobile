@@ -1,0 +1,210 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget"
+	xmlns:msl="urn:import:nz.govt.studylink.mslapp.client.ui"
+	xmlns:msl-mgwt="urn:import:nz.govt.studylink.mslapp.client.ui.mgwt">
+	<ui:style>
+		.sectionHeader {
+			background: #7DBA00;
+			color: white;
+			padding: 5px;
+			font-weight: bold;
+			padding-left: 10px;
+			margin-bottom: 6px;
+		}
+		
+		.label {
+			float: left;
+			width: 85px;
+			text-align: right;
+			color: grey;
+			margin-right: 5px;
+		}
+		
+		.assistanceContainer>div {
+			margin-bottom: 0.2em;
+		}
+		
+		.pendingStatement {
+			margin: 20px;
+			margin-top: 5px;
+			color: grey
+		}
+		
+		.declinedStatement {
+			margin: 20px;
+			margin-top: 5px;
+			color: grey
+		}
+		
+		.progress {
+			height: 20px;
+			overflow: hidden;
+			background-color: #888888;
+			background-image: -moz-linear-gradient(top, #818181, #888888);
+			background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#818181),
+				to(#888888) );
+			background-image: -webkit-linear-gradient(top, #818181, #888888);
+			background-image: -o-linear-gradient(top, #818181, #888888);
+			background-image: linear-gradient(to bottom, #818181, #888888);
+			background-repeat: repeat-x;
+			-webkit-border-radius: 4px;
+			-moz-border-radius: 4px;
+			border-radius: 4px;
+			-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+			-moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+			box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+		}
+		
+		.bar {
+			float: left;
+			width: 0;
+			height: 100%;
+			font-size: 12px;
+			color: white;
+			text-align: center;
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+			background-color: #0E90D2;
+			background-image: -moz-linear-gradient(top, #149BDF, #0480BE);
+			background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#149BDF),
+				to(#0480BE) );
+			background-image: -webkit-linear-gradient(top, #149BDF, #0480BE);
+			background-image: -o-linear-gradient(top, #149BDF, #0480BE);
+			background-image: linear-gradient(to bottom, #149BDF, #0480BE);
+			background-repeat: repeat-x;
+			-webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+			-moz-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+			box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			-webkit-transition: width 0.6s ease;
+			-moz-transition: width 0.6s ease;
+			-o-transition: width 0.6s ease;
+			transition: width 0.6s ease;
+		}
+		
+		.barText {
+			position: absolute;
+			margin-top: 2px;
+			margin-left: 20%;
+			font-size: 0.8em;
+			color: white;
+		}
+	</ui:style>
+
+	<mgwt:LayoutPanel>
+
+		<!-- Header Panel -->
+		<mgwt:HeaderPanel ui:field="headerPanel">
+			<mgwt:left>
+				<mgwt:HeaderButton ui:field="backButton"
+					backButton="true" text="Back"></mgwt:HeaderButton>
+			</mgwt:left>
+			<mgwt:center>
+				<msl:PageTitle ui:field="type" />
+			</mgwt:center>
+		</mgwt:HeaderPanel>
+
+		<mgwt:ScrollPanel ui:field="scrollPanel"
+			scrollingEnabledX="false">
+			<g:HTMLPanel>
+				<g:HTMLPanel addStyleNames="{style.sectionHeader}">
+					Application Details
+				</g:HTMLPanel>
+				<msl-mgwt:WidgetList round="true"
+					ui:field="applicationsDetailsList">
+					<g:HorizontalPanel>
+						<g:HTML addStyleNames="{style.label}">Received:</g:HTML>
+						<g:HTML ui:field="received"></g:HTML>
+					</g:HorizontalPanel>
+					<g:HorizontalPanel>
+						<g:HTML addStyleNames="{style.label}">Status:</g:HTML>
+						<g:HTML ui:field="status"></g:HTML>
+					</g:HorizontalPanel>
+					<g:HorizontalPanel ui:field="assistancePanel">
+						<g:HTML addStyleNames="{style.label}">Assistance:</g:HTML>
+						<g:HTMLPanel ui:field="assistanceContainer"
+							addStyleNames="{style.assistanceContainer}">
+						</g:HTMLPanel>
+					</g:HorizontalPanel>
+					<g:HTMLPanel ui:field="week200Panel">
+						<g:HTML addStyleNames="{style.label}">Entitlement:</g:HTML>
+						<g:HTMLPanel addStyleNames='{style.progress}'>
+							<g:HTML addStyleNames='{style.barText}' ui:field="week200BarText"/>
+							<g:HTML addStyleNames='{style.bar}' ui:field="week200Bar"/>
+						</g:HTMLPanel>
+					</g:HTMLPanel>
+				</msl-mgwt:WidgetList>
+
+				<g:HTML ui:field="pendingStatementPanel" addStyleNames="{style.pendingStatement}" />
+
+				<g:HTMLPanel ui:field="declinedStatementPanel"
+					addStyleNames="{style.declinedStatement}">
+					<g:HTML ui:field="declinedStatement" />
+					<br />
+					<g:HTML ui:field="declinedReason" />
+					<br />
+					If you believe this assessment is incorrect and wish to discuss,
+					please call StudyLink on:
+					<br />
+					0800 88 99 00 (+64 4 917 3107 if you are calling from outiside New
+					Zealand or from your mobile)
+				</g:HTMLPanel>
+
+				<!-- Living Costs -->
+				<g:HTMLPanel ui:field="livingCostsContainer">
+					<g:HTMLPanel addStyleNames="{style.sectionHeader}">
+						Living Costs
+					</g:HTMLPanel>
+					<msl-mgwt:WidgetList round="true">
+						<g:HorizontalPanel>
+							<g:HTML addStyleNames="{style.label}">Start Date:</g:HTML>
+							<g:HTML ui:field="livingCostsStartDate"></g:HTML>
+						</g:HorizontalPanel>
+						<g:HorizontalPanel>
+							<g:HTML addStyleNames="{style.label}">Payment Amount:</g:HTML>
+							<g:HTML ui:field="livingCostsPaymentAmount"></g:HTML>
+						</g:HorizontalPanel>
+					</msl-mgwt:WidgetList>
+				</g:HTMLPanel>
+
+				<!-- Study Details -->
+				<g:HTMLPanel ui:field="studyDetailsContainer">
+					<g:HTMLPanel addStyleNames="{style.sectionHeader}">
+						Study Details
+					</g:HTMLPanel>
+					<msl-mgwt:WidgetList round="true">
+						<g:HorizontalPanel>
+							<g:HTML addStyleNames="{style.label}">Education Provider:</g:HTML>
+							<g:HTML ui:field="stydyDetailsProvider"></g:HTML>
+						</g:HorizontalPanel>
+						<g:HorizontalPanel>
+							<g:HTML addStyleNames="{style.label}">Campus:</g:HTML>
+							<g:HTML ui:field="stydyDetailsCampus"></g:HTML>
+						</g:HorizontalPanel>
+						<g:HorizontalPanel>
+							<g:HTML addStyleNames="{style.label}">Program:</g:HTML>
+							<g:HTML ui:field="stydyDetailsProgram"></g:HTML>
+						</g:HorizontalPanel>
+						<g:HorizontalPanel>
+							<g:HTML addStyleNames="{style.label}">Start Date:</g:HTML>
+							<g:HTML ui:field="stydyDetailsStartDate"></g:HTML>
+						</g:HorizontalPanel>
+						<g:HorizontalPanel>
+							<g:HTML addStyleNames="{style.label}">End Date:</g:HTML>
+							<g:HTML ui:field="stydyDetailsEndDate"></g:HTML>
+						</g:HorizontalPanel>
+						<g:HorizontalPanel>
+							<g:HTML addStyleNames="{style.label}">Student ID:</g:HTML>
+							<g:HTML ui:field="stydyDetailsStudentID"></g:HTML>
+						</g:HorizontalPanel>
+					</msl-mgwt:WidgetList>
+				</g:HTMLPanel>
+
+			</g:HTMLPanel>
+		</mgwt:ScrollPanel>
+
+	</mgwt:LayoutPanel>
+
+</ui:UiBinder> 

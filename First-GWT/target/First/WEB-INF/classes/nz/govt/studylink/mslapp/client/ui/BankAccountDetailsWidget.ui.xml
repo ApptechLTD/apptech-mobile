@@ -1,0 +1,86 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget" xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:msl="urn:import:nz.govt.studylink.mslapp.client.ui">
+
+	<ui:style
+		type="nz.govt.studylink.mslapp.client.ui.BankAccountDetailsWidget.PageStyle">
+			.important {
+				font-weight: bold;
+			}
+			
+			.label {
+				float: left;
+				width: 85px;
+				text-align: right;
+				color: grey;
+				margin-right: 5px;
+			}
+			
+			.txtBox>input {
+				text-overflow: ellipsis;
+			}
+			
+			.usedForContainer>div {
+				margin-bottom: 0.2em;
+			}
+			
+			.mandatoryContainerHighlightIOS{
+			margin: 10px;
+			padding: 0px !important;
+			border-radius: 8px !important;
+			box-shadow: 0 0 10px red;
+
+		}
+		
+		.mandatoryContainerHighlightAndroid{
+			margin: 10px;
+			padding: 0px !important;
+			box-shadow: 0 0 10px red;
+
+		}
+			
+			.checkBox {
+				width:140px;
+
+			}
+		</ui:style>
+
+	<ui:with field="icons"
+		type="nz.govt.studylink.mslapp.client.resources.icons.Icons" />
+
+	<mgwt:WidgetList round="true" ui:field="bankAccountDetailsList">
+		<g:HorizontalPanel>
+			<g:HTML ui:field="bankAccountNumber" addStyleNames="{style.label}">Bank
+				Account:</g:HTML>
+			<g:Label ui:field="lblBankAccountNumber"></g:Label>
+			<mgwt:MTextBox addStyleNames="{style.txtBox}" ui:field="txtBoxBankAccountNumber"
+				placeHolder="Account Number" />
+		</g:HorizontalPanel>
+		<g:HorizontalPanel>
+			<g:HTML ui:field="bankAccountName" addStyleNames="{style.label}">Name:</g:HTML>
+			<g:Label ui:field="lblBankAccountName"></g:Label>
+			<mgwt:MTextBox addStyleNames="{style.txtBox}" ui:field="txtBoxBankAccountName"
+				placeHolder="Account Name" />
+		</g:HorizontalPanel>
+		<g:HorizontalPanel ui:field="usedForPanel">
+			<g:HTML ui:field="usedFor" addStyleNames="{style.label}">Used For:</g:HTML>
+			<g:HTMLPanel ui:field="usedForContainer" addStyleNames="{style.usedForContainer}">
+				<g:HorizontalPanel>
+					<g:Label addStyleNames="{style.checkBox}" ui:field="lblAllowance">Allowance</g:Label>
+					<msl:CheckBox  ui:field="allowanceCheckBox" />
+				</g:HorizontalPanel>
+				<g:HorizontalPanel>
+					<g:Label addStyleNames="{style.checkBox}" ui:field="lblLoan">Loan Living Costs</g:Label>
+					<msl:CheckBox ui:field="loanCheckBox" />
+				</g:HorizontalPanel>
+				<g:HorizontalPanel>
+					<g:Label addStyleNames="{style.checkBox}" ui:field="lblCourceCosts">Course Related</g:Label>
+					<msl:CheckBox  ui:field="courseCostsCheckBox" />
+				</g:HorizontalPanel>
+			</g:HTMLPanel>
+		</g:HorizontalPanel>
+	</mgwt:WidgetList>
+
+</ui:UiBinder>

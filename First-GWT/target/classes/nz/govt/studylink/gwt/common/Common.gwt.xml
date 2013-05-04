@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+
+  <!-- Module that contains the server side components from the CloudApp -->
+
+  <!-- Specify the paths for translatable code                    -->
+  <source path='proxies' />
+  <source path='request' />
+</module>

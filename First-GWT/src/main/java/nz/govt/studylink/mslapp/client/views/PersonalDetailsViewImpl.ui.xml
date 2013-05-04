@@ -1,0 +1,139 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget"
+	xmlns:msl="urn:import:nz.govt.studylink.mslapp.client.ui"
+	xmlns:msl-mgwt="urn:import:nz.govt.studylink.mslapp.client.ui.mgwt">
+	<ui:style>
+		.sectionHeader {
+			background: #7DBA00;
+			color: white;
+			padding: 5px;
+			font-weight: bold;
+			padding-left: 10px;
+			margin-bottom: 6px;
+			clear: left;
+		}
+		
+		.label {
+			float: left;
+			width: 85px;
+			text-align: right;
+			color: grey;
+			margin-right: 5px;
+		}
+		
+		.labelIncome {
+			float: left;
+			width: 130px;
+			text-align: right;
+			color: grey;
+			margin-right: 5px;
+		}
+		
+		.value {
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		
+		.defaultPanel {
+			height: 60px;
+		}
+	</ui:style>
+
+	<ui:with field="icons"
+		type="nz.govt.studylink.mslapp.client.resources.icons.Icons" />
+
+	<mgwt:LayoutPanel ui:field="layoutPanel">
+		<!-- Header Panel -->
+		<mgwt:HeaderPanel ui:field="headerPanel">
+			<mgwt:left>
+				<msl:HeaderMenuButton ui:field="menuButton"
+					image="{icons.menuIcon}" />
+			</mgwt:left>
+			<mgwt:center>
+				<msl:PageTitle>Personal Details</msl:PageTitle>
+			</mgwt:center>
+			<mgwt:right>
+				<mgwt:HeaderButton ui:field="editButton"
+					roundButton="true" text="Edit"></mgwt:HeaderButton>
+			</mgwt:right>
+		</mgwt:HeaderPanel>
+
+		<mgwt:ScrollPanel ui:field="scrollPanel"
+			scrollingEnabledX="false">
+			<g:HTMLPanel ui:field="scrollContent" addStyleNames="scrollContent">
+				<g:HTMLPanel addStyleNames="{style.sectionHeader}">
+					Contact Details
+				</g:HTMLPanel>
+
+				<!-- Contact details information (not including address) -->
+				<msl-mgwt:WidgetList round="true"
+					ui:field="contactDetailsPrimaryInfo">
+					<g:HTMLPanel>
+						<g:HTML addStyleNames="{style.label}">Name:</g:HTML>
+						<g:HTML ui:field="name"></g:HTML>
+					</g:HTMLPanel>
+					<g:HTMLPanel ui:field="panelHomePhone">
+						<g:HTML addStyleNames="{style.label}">Home Phone:</g:HTML>
+						<g:HTML ui:field="phoneNumber"></g:HTML>
+					</g:HTMLPanel>
+					<g:HTMLPanel ui:field="panelMobilePhone">
+						<g:HTML addStyleNames="{style.label}">Mobile Phone:</g:HTML>
+						<g:HTML ui:field="mobileNumber"></g:HTML>
+					</g:HTMLPanel>
+					<g:HTMLPanel>
+						<g:HTML addStyleNames="{style.label}">Email:</g:HTML>
+						<g:HTML ui:field="emailAddress" addStyleNames="{style.value}"></g:HTML>
+					</g:HTMLPanel>
+
+				</msl-mgwt:WidgetList>
+
+				<g:HTMLPanel ui:field="contactDetailsAddressContainer">
+					<msl:AddressWidget ui:field="studyAddressWidget"></msl:AddressWidget>
+					<msl:AddressWidget ui:field="postalAddressWidget"></msl:AddressWidget>
+				</g:HTMLPanel>
+
+				<g:HTMLPanel ui:field="bankAccountDetails">
+					<g:HTMLPanel addStyleNames="{style.sectionHeader}">
+						Bank Account Details
+					</g:HTMLPanel>
+
+					<g:HTMLPanel ui:field="bankAccountDetailsContainer">
+					</g:HTMLPanel>
+				</g:HTMLPanel>
+				<g:HTMLPanel ui:field="incomeDetails">
+					<g:HTMLPanel addStyleNames="{style.sectionHeader}">
+						Income Details
+					</g:HTMLPanel>
+
+					<!-- <g:HTMLPanel> <mgwt:WidgetList round="true" ui:field="totalWeeklyIncomeWidget"> 
+						<g:HTMLPanel ui:field="incomeDetailsContainer"> <g:HTML addStyleNames="{style.label}">Total 
+						Weekly Income:</g:HTML> <g:HTML ui:field="totalWeeklyIncomeLabel"></g:HTML> 
+						</g:HTMLPanel> </mgwt:WidgetList> </g:HTMLPanel> -->
+					<msl-mgwt:WidgetList round="true"
+						ui:field="widgetIncomeDetails">
+						<g:HTMLPanel>
+							<g:HTML addStyleNames="{style.labelIncome}">Employer Name:</g:HTML>
+							<g:HTML ui:field="employerName" addStyleNames="{style.value}"></g:HTML>
+						</g:HTMLPanel>
+						<g:HTMLPanel>
+							<g:HTML addStyleNames="{style.labelIncome}">Primary Weekly Income:</g:HTML>
+							<g:HTML ui:field="primaryWeeklyIncome"></g:HTML>
+						</g:HTMLPanel>
+						<g:HTMLPanel ui:field="panelSecondaryWeeklyIncome">
+							<g:HTML addStyleNames="{style.labelIncome}">Secondary Weekly Income:</g:HTML>
+							<g:HTML ui:field="secondaryWeeklyIncome"></g:HTML>
+						</g:HTMLPanel>
+
+					</msl-mgwt:WidgetList>
+				</g:HTMLPanel>
+				<g:HTMLPanel ui:field="defaultPanel" addStyleNames="{style.defaultPanel}">
+
+				</g:HTMLPanel>
+
+			</g:HTMLPanel>
+		</mgwt:ScrollPanel>
+
+	</mgwt:LayoutPanel>
+
+</ui:UiBinder> 
