@@ -129,7 +129,7 @@
 					<execution>
 						<!-- Remove the cache file. When the gwt debug, if would generate a 
 							cache temp file in the source folder, which is useless when it releases. -->
-						<phase>compile</phase>
+						<phase>package</phase>
 						<goals>
 							<goal>run</goal>
 						</goals>
@@ -207,6 +207,7 @@
 				<version>1.5.2</version>
 				<executions>
 					<execution>
+					    <phase>package</phase>
 						<goals>
 							<goal>replace</goal>
 						</goals>
