@@ -213,7 +213,7 @@
 						</goals>
 					</execution>
 				</executions>
-				<configuration>
+				<configuration> 
 					<file>${project.basedir}/target/classes/nz/govt/studylink/mslapp/First.gwt.xml</file>
 					<replacements>
 						<replacement>
