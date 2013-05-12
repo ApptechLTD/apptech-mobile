@@ -1,0 +1,316 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget"
+	xmlns:msl="urn:import:com.apptech.first.client.ui" xmlns:mslui="urn:import:com.apptech.first.client.ui">
+
+	<ui:style type="com.apptech.first.client.views.PersonalDetailsUpdateViewImpl.PageStyle">
+		.sectionHeader {
+			background: #7DBA00;
+			color: white;
+			padding: 5px;
+			font-weight: bold;
+			padding-left: 10px;
+			margin-bottom: 6px;
+			clear: left;
+		}
+		
+		.imgDeleteButton {
+			line-height: 44px;
+			text-align: center;
+			min-height: 44px;
+			display: block;
+			vertical-align: middle;
+		}
+		
+		
+		.imgDeleteButtonTwoLineTextField {
+			line-height: 63px;
+			text-align: center;
+			min-height: 63px;
+			display: block;
+			vertical-align: middle;
+		}
+		
+		
+		.imgDeleteButton>img {
+			vertical-align: middle;
+		}
+		
+		.label {
+			float: left;
+			width: 85px;
+			text-align: right;
+			color: grey;
+			margin-right: 5px;
+		}
+		
+		.txtBox>input {
+			text-overflow:ellipsis;
+		}
+		
+		.txtBoxEmployerName > input {
+			text-overflow:ellipsis;
+			
+
+		}
+		
+		.txtBoxEmployerName {
+			width:80%;
+
+		}
+		
+		.labelIncome {
+			float: left;
+			width: 130px;
+			text-align: right;
+			color: grey;
+			margin-right: 5px;
+		}
+		
+		.divDelete {
+			width: 5%;
+			display: block;
+			padding-top: 10px;
+			float: left;
+			clear: left;
+		}
+		
+		.divContactSection {
+			width: 95%;
+			display: block;
+			float: left;
+		}
+		
+		.divMandatory {
+			float: left;
+			line-height: 44px;
+			text-align: center;
+			padding-top: 10px;
+		}
+		
+		.divMandatory>div {
+			height: 44px;
+			vertical-align: middle;
+		}
+		
+		.divMandatoryInnerTwoLineTextField {
+			height: 63px !important;
+
+		}
+		
+		.divMandatoryTwoLineTextField {
+			float: left;
+			line-height: 63px;
+			text-align: center;
+			padding-top: 10px;
+		}
+		
+		.divMandatoryTwoLineTextField>div {
+			height: 44px;
+			vertical-align: middle;
+		}
+		
+		.mandatoryContainerHighlightIOS{
+			margin: 10px;
+			padding: 0px !important;
+			border-radius: 8px !important;
+			box-shadow: 0 0 10px red;
+
+		}
+		
+		.mandatoryContainerHighlightAndroid{
+			margin: 10px;
+			padding: 0px !important;
+			box-shadow: 0 0 10px red;
+
+		}
+		
+		.mandatoryEmailHighlight{
+			box-shadow: 0 0 5px red inset;
+
+		}
+
+	</ui:style>
+
+
+
+
+	<ui:with field='icons'
+		type='com.apptech.first.client.resources.icons.Icons' />
+	<mgwt:LayoutPanel>
+		<!-- Header Panel -->
+		<mgwt:HeaderPanel ui:field="headerPanel">
+			<mgwt:left>
+				<mgwt:HeaderButton ui:field="cancelButton"
+					roundButton="true" text="Cancel"></mgwt:HeaderButton>
+			</mgwt:left>
+
+			<mgwt:center>
+				<msl:PageTitle>Personal Details</msl:PageTitle>
+			</mgwt:center>
+			<mgwt:right>
+				<mgwt:HeaderButton ui:field="doneButton"
+					roundButton="true" text="Done"></mgwt:HeaderButton>
+			</mgwt:right>
+		</mgwt:HeaderPanel>
+
+		<mgwt:ScrollPanel ui:field="scrollPanel"
+			scrollingEnabledX="false">
+			<g:HTMLPanel>
+				<g:HTMLPanel addStyleNames="{style.sectionHeader}">
+					Contact Details
+				</g:HTMLPanel>
+				<g:HTMLPanel>
+					<g:HTMLPanel addStyleNames="{style.divDelete}">
+						<mslui:ImageButton ui:field="deleteName"
+							addStyleNames="{style.imgDeleteButton}"></mslui:ImageButton>
+						<mslui:ImageButton ui:field="deleteHomePhone"
+							addStyleNames="{style.imgDeleteButtonTwoLineTextField}" image='{icons.minusButton}'></mslui:ImageButton>
+						<mslui:ImageButton ui:field="deleteMobilePhone"
+							addStyleNames="{style.imgDeleteButtonTwoLineTextField}" image='{icons.minusButton}'></mslui:ImageButton>
+						<mslui:ImageButton ui:field="deleteEmail"
+							addStyleNames="{style.imgDeleteButton}" image='{icons.minusButton}'></mslui:ImageButton>
+					</g:HTMLPanel>
+					<!-- Contact details information (not including address) -->
+					<g:HTMLPanel addStyleNames="{style.divContactSection}">
+						<mgwt:WidgetList round="true" ui:field="contactDetailsPrimaryInfo">
+
+							<g:HorizontalPanel>
+								<g:HTML addStyleNames="{style.label}">Name:</g:HTML>
+								<g:Label ui:field="name"></g:Label>
+							</g:HorizontalPanel>
+							<g:HorizontalPanel>
+								<g:HTML addStyleNames="{style.label}">Home Phone:</g:HTML>
+								<mgwt:MTextBox addStyleNames="{style.txtBox}" ui:field="phoneNumber"></mgwt:MTextBox>
+							</g:HorizontalPanel>
+							<g:HorizontalPanel>
+								<g:HTML addStyleNames="{style.label}">Mobile Phone:</g:HTML>
+								<mgwt:MTextBox addStyleNames="{style.txtBox}" ui:field="mobileNumber"></mgwt:MTextBox>
+							</g:HorizontalPanel>
+							<g:HorizontalPanel ui:field="emailContainer">
+								<g:HTML addStyleNames="{style.label}">Email:</g:HTML>
+								<mgwt:MTextBox addStyleNames="{style.txtBox}" ui:field="emailAddress"></mgwt:MTextBox>
+							</g:HorizontalPanel>
+
+						</mgwt:WidgetList>
+
+
+
+					</g:HTMLPanel>
+					
+					<!-- Contact details information Study Address -->
+					<g:HTMLPanel>
+						<g:HTMLPanel addStyleNames="{style.divDelete}">
+							<mslui:ImageButton ui:field="deleteStudyAddress"
+								addStyleNames="{style.imgDeleteButton}" image='{icons.minusButton}'></mslui:ImageButton>
+						</g:HTMLPanel>
+						<g:HTMLPanel addStyleNames="{style.divContactSection}">
+							<msl:AddressWidget ui:field="studyAddressWidget"></msl:AddressWidget>
+						</g:HTMLPanel>
+						
+					</g:HTMLPanel>
+
+					<!-- Contact details information Postal Address -->
+					<g:HTMLPanel>
+						<g:HTMLPanel addStyleNames="{style.divDelete}">
+							<mslui:ImageButton ui:field="deletePostalAddress"
+								addStyleNames="{style.imgDeleteButton}" image='{icons.minusButton}'></mslui:ImageButton>
+						</g:HTMLPanel>
+						<g:HTMLPanel addStyleNames="{style.divContactSection}">
+							<msl:AddressWidget ui:field="postalAddressWidget"></msl:AddressWidget>
+						</g:HTMLPanel>
+					</g:HTMLPanel>
+
+				</g:HTMLPanel>
+
+
+				<g:HTMLPanel addStyleNames="{style.sectionHeader}">
+					Bank Account Details
+				</g:HTMLPanel>
+
+
+				<g:HTMLPanel ui:field="bankAccountsSectionContainer">
+					<!-- <g:HTMLPanel ui:field="bankAccountContainer"> -->
+					<g:HTMLPanel addStyleNames="{style.divDelete}"
+						ui:field="deleteButtonContainer">
+						<mslui:ImageButton ui:field="delete"
+							addStyleNames="{style.imgDeleteButton}" image='{icons.minusButton}'></mslui:ImageButton>
+					</g:HTMLPanel>
+
+					<g:HTMLPanel ui:field="bankAccountDetailsContainer"
+						addStyleNames="{style.divContactSection}">
+
+					</g:HTMLPanel>
+					<!-- </g:HTMLPanel> -->
+				</g:HTMLPanel>
+
+				<!--Used for adding new bank account details -->
+				<!-- <g:HTMLPanel ui:field="blankBankAccountsSectionContainer">
+					<g:HTMLPanel ui:field="bankAccountContainer">
+					<g:HTMLPanel addStyleNames="{style.divDelete}"
+						ui:field="blankDeleteButtonContainer">
+						<mslui:ImageButton ui:field="blankDelete"
+							addStyleNames="{style.imgDeleteButton}" image='{icons.minusButton}'></mslui:ImageButton>
+					</g:HTMLPanel>
+
+					<g:HTMLPanel ui:field="blankBankAccountDetailsContainer"
+						addStyleNames="{style.divContactSection}">
+						<msl:BankAccountDetailsWidget
+							ui:field="blankWidgetForBankAccountDetails"></msl:BankAccountDetailsWidget>
+					</g:HTMLPanel>
+					<g:HTMLPanel addStyleNames="{style.divMandatory}">
+						<g:HTMLPanel>*</g:HTMLPanel>
+					</g:HTMLPanel>
+				</g:HTMLPanel> -->
+				
+				<g:HTMLPanel addStyleNames="{style.sectionHeader}">
+					Income Details
+				</g:HTMLPanel>
+
+				<g:HTMLPanel ui:field="incomeDetailsSectionContainer">
+					<g:HTMLPanel addStyleNames="{style.divDelete}"
+						ui:field="deleteButtonForIncomeDetailsContainer">
+					</g:HTMLPanel>
+
+					<g:HTMLPanel ui:field="incomeDetailsContainer"
+						addStyleNames="{style.divContactSection}">
+					</g:HTMLPanel>
+
+				</g:HTMLPanel>
+				
+				
+				<g:HTMLPanel>
+					<g:HTMLPanel addStyleNames="{style.divDelete}">
+						<mslui:ImageButton ui:field="deleteEmployerName"
+							addStyleNames="{style.imgDeleteButton}" image='{icons.minusButton}'></mslui:ImageButton>
+						<mslui:ImageButton ui:field="deletePrimaryWeeklyIncome"
+							addStyleNames="{style.imgDeleteButtonTwoLineTextField}" image='{icons.minusButton}'></mslui:ImageButton>
+						<mslui:ImageButton ui:field="deleteSecondaryWeeklyIncome"
+							addStyleNames="{style.imgDeleteButtonTwoLineTextField}" image='{icons.minusButton}'></mslui:ImageButton>
+					</g:HTMLPanel>
+					<!-- Contact details information (not including address) -->
+					<g:HTMLPanel addStyleNames="{style.divContactSection}">
+						<mgwt:WidgetList round="true" ui:field="incomeDetails">
+
+							<g:HorizontalPanel>
+								<g:HTML addStyleNames="{style.labelIncome}">Employer Name:</g:HTML>
+								<mgwt:MTextBox addStyleNames="{style.txtBoxEmployerName}" ui:field="employerName" placeHolder="Employer Name"></mgwt:MTextBox>
+							</g:HorizontalPanel>
+							<g:HorizontalPanel>
+								<g:HTML addStyleNames="{style.labelIncome}">Primary Weekly Income:</g:HTML>
+								<mgwt:MTextBox addStyleNames="{style.txtBoxEmployerName}" ui:field="primaryWeeklyIncome" placeHolder="$"></mgwt:MTextBox>
+							</g:HorizontalPanel>
+							<g:HorizontalPanel>
+								<g:HTML addStyleNames="{style.labelIncome}">Secondary Weekly Income:</g:HTML>
+								<mgwt:MTextBox addStyleNames="{style.txtBoxEmployerName}" ui:field="secondaryWeeklyIncome" placeHolder="$"></mgwt:MTextBox>
+							</g:HorizontalPanel>
+						</mgwt:WidgetList>
+					</g:HTMLPanel>
+					
+			</g:HTMLPanel>
+			</g:HTMLPanel>
+
+		</mgwt:ScrollPanel>
+
+	</mgwt:LayoutPanel>
+</ui:UiBinder>

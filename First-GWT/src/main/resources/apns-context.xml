@@ -42,7 +42,7 @@
 	<bean id="apnsService" factory-bean="apnsServiceFactory" factory-method="getApnsService" />
 
 	<!-- apns EndPoint -->
-	<bean id="apns" class="nz.govt.studylink.mslapp.server.camel.CustomApnsComponent">
+	<bean id="apns" class="com.apptech.first.server.camel.CustomApnsComponent">
 		<property name="apnsService" ref="apnsService" />
 	</bean>
 	
@@ -65,10 +65,10 @@
         <property name="timeout" value="10"/>
     </bean>  
     
-	<!-- <bean id="shutdownCamelAware" class="nz.govt.studylink.mslapp.servlet.ShutdownAwareImpl">  
+	<!-- <bean id="shutdownCamelAware" class="com.apptech.first.servlet.ShutdownAwareImpl">  
     </bean>   -->
 	
-	<bean id="mslApnsSender" class="nz.govt.studylink.mslapp.server.notifications.ApnsSenderImpl">
+	<bean id="mslApnsSender" class="com.apptech.first.server.notifications.ApnsSenderImpl">
 		
 	</bean>
 

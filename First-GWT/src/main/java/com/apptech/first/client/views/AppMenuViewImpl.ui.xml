@@ -1,0 +1,79 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget"
+	xmlns:mslui="urn:import:com.apptech.first.client.ui">
+
+	<ui:style>
+		.headerButton {
+			padding: 5px 8px 7px 25px;
+			margin-top: 1px !important;
+			margin-bottom: 0px !important;
+			margin-right: -5px !important;
+		}
+
+		.menu-group {
+			margin: 0 auto;
+			max-width: 53.4375em;
+		}
+		.menu-item {
+			background-color: #7dba00;
+			border-radius: 1.5em;
+			float: left;
+			margin: 4% 0 0 4%;
+			position: relative;
+			width: 44%;
+		}
+
+		.badge {
+			background-color: red;
+			background-image: -webkit-gradient(linear, 30 top, 30 bottom, color-stop(0.32, #FF7575), color-stop(0.66, red));
+			border: 2px solid whiteSmoke;
+			border-radius: 20px;
+			box-shadow: 2px 3px 5px #888;
+			color: white;
+			font-weight: bold;
+			position: absolute;
+			padding: 2px 6px;
+			top: 10px;
+			right: 1px;
+		}
+	</ui:style>
+
+	<ui:with field="icons" type="com.apptech.first.client.resources.icons.Icons"/>
+
+	<mgwt:LayoutPanel>
+
+		<!-- Header Panel -->
+		<mgwt:HeaderPanel ui:field="headerPanel" center="Menu">
+			<mgwt:left>
+				<mslui:HeaderMenuButton ui:field="menuButton"
+					image="{icons.menuIcon}" addStyleNames="mgwt-HeaderButton-active" />
+			</mgwt:left>
+			<mgwt:right>
+				<mgwt:HeaderButton ui:field="logoutButton" addStyleNames="{style.headerButton}" text="Logout" />
+			</mgwt:right>
+		</mgwt:HeaderPanel>
+
+		<g:HTMLPanel addStyleNames="{style.menu-group}">
+			<g:HTMLPanel addStyleNames="{style.menu-item}">
+				<mslui:MenuButton ui:field="dashboardButton"
+					label="Dashboard" image="{icons.menuIconDashboard}"/>
+				<g:Label ui:field="dashboardBadge" addStyleNames="{style.badge}">1</g:Label>
+			</g:HTMLPanel>
+			<g:HTMLPanel addStyleNames="{style.menu-item}">
+				<mslui:MenuButton ui:field="personalDetailsButton"
+					label="Personal Details" image="{icons.menuIconPersonalDetails}"/>
+				<g:Label ui:field="personalDetailsBadge" addStyleNames="{style.badge}">1</g:Label>
+			</g:HTMLPanel>
+			<g:HTMLPanel addStyleNames="{style.menu-item}">
+				<mslui:MenuButton ui:field="mailOnlineButton"
+					label="Mail Online" image="{icons.menuIconMailOnline}"/>
+				<g:Label ui:field="mailOnlineBadge" addStyleNames="{style.badge}">1</g:Label>
+			</g:HTMLPanel>
+		</g:HTMLPanel>
+
+	</mgwt:LayoutPanel>
+
+</ui:UiBinder> 

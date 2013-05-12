@@ -1,0 +1,112 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+			 xmlns:g="urn:import:com.google.gwt.user.client.ui" 
+			 xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget"
+			 xmlns:msl="urn:import:com.apptech.first.client.ui">
+
+	<ui:style type="com.apptech.first.client.views.MailOnlineViewImpl.Css">
+	
+		.customList {
+			position: relative;
+		}
+	
+		.mailOnlineHeader {
+			background: #7DBA00;
+			color: white;
+			padding: 5px;
+			font-weight: bold;
+			padding-left: 10px;
+			margin-bottom: 6px;
+		}
+		
+		.noMailOnlineMessage {
+			text-align: center;
+			color: #999;
+			padding: 10px;
+		}
+		
+		.mailTypeAndDate {
+			color: grey;
+			margin-left: 20px;
+		}
+		
+		.mailTitle {
+			color: black;
+			width: 240px;
+			margin-left: 20px;
+		}
+
+		.icon {
+			height: 30px;
+			margin-top: -15px;
+			position: absolute;
+			right: 20px;
+			top: 50%;
+			width: 30px;
+		}
+		
+		.unreadIcon {
+			height: 13px;
+			margin-top: -7px;
+			position: absolute;
+			left: 10px;
+			top: 50%;
+			width: 13px;
+		}
+		.unreadIcon > img {
+			height: 13px;
+			width: 13px;
+		}
+		
+		.displayNone {
+			display: none;
+		}
+		
+		.icon > img {
+			height: 100%;
+			width: 100%;
+		}
+
+		.loadingMessage{
+			color: #999;
+			padding-top: 10px;
+			text-align: center;
+		}
+		
+	</ui:style>
+
+	<ui:with field="icons" type="com.apptech.first.client.resources.icons.Icons"/>
+
+	<mgwt:LayoutPanel>
+
+		<!-- Header Panel -->
+		<mgwt:HeaderPanel ui:field="headerPanel">
+			<mgwt:left>
+				<msl:HeaderMenuButton ui:field="menuButton" image="{icons.menuIcon}"/>
+			</mgwt:left>
+			<mgwt:center>
+				<msl:PageTitle text="Inbox" />
+			</mgwt:center>
+		</mgwt:HeaderPanel>
+
+		<!-- Lists -->
+		<mgwt:ScrollPanel ui:field="scrollPanel" scrollingEnabledX="false">
+		
+			<g:HTMLPanel>
+				<msl:Loading ui:field="loadingMails">
+				    <g:Label addStyleNames="{style.loadingMessage}">Loading mails</g:Label>
+				</msl:Loading>
+			
+				<g:HTMLPanel ui:field="noMailOnlineMessage" 
+							 addStyleNames="{style.noMailOnlineMessage}">
+					No mail online to display.
+				</g:HTMLPanel>
+
+				<mgwt:CellList ui:field="mailOnlineList" addStyleNames="{style.customList}"/>
+				
+			</g:HTMLPanel>
+		</mgwt:ScrollPanel>
+	</mgwt:LayoutPanel>
+
+</ui:UiBinder>
+ 

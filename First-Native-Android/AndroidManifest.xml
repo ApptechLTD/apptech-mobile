@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="nz.govt.studylink.mslapp"
+    package="com.apptech.first"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -40,10 +40,10 @@
 	        where PACKAGE is the application's package name.
 	 -->
 	 <permission
-	         android:name="nz.govt.studylink.mslapp.permission.C2D_MESSAGE"
+	         android:name="com.apptech.first.permission.C2D_MESSAGE"
 	         android:protectionLevel="signature"/>
 	 <uses-permission
-	         android:name="nz.govt.studylink.mslapp.permission.C2D_MESSAGE"/>
+	         android:name="com.apptech.first.permission.C2D_MESSAGE"/>
 	 
 	 <!-- This app has permission to register and receive data message. -->
 	 <uses-permission
@@ -59,11 +59,11 @@
 		  Android PooshWoosh notification settings: BEGIN
 		-->
         
-        <activity android:name="nz.govt.studylink.mslapp.cordova.plugins.push.PushWebview"/>
+        <activity android:name="com.apptech.first.cordova.plugins.push.PushWebview"/>
  
-		<activity android:name="nz.govt.studylink.mslapp.cordova.plugins.push.MessageActivity"/>
+		<activity android:name="com.apptech.first.cordova.plugins.push.MessageActivity"/>
 		 
-		<activity android:name="nz.govt.studylink.mslapp.cordova.plugins.push.PushHandlerActivity"/>
+		<activity android:name="com.apptech.first.cordova.plugins.push.PushHandlerActivity"/>
 		 
 		<!--
 		  BroadcastReceiver that will receive intents from GCM
@@ -73,14 +73,14 @@
 		  so only GCM services can send data messages for the app.
 		-->
 		<receiver
-		        android:name="nz.govt.studylink.mslapp.cordova.plugins.google.gcm.GCMBroadcastReceiver"
+		        android:name="com.apptech.first.cordova.plugins.google.gcm.GCMBroadcastReceiver"
 		        android:permission="com.google.android.c2dm.permission.SEND">
 		    <intent-filter>
 		        <!-- Receives the actual messages. -->
 		        <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
 		        <!-- Receives the registration id. -->
 		        <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
-		        <category android:name="nz.govt.studylink.mslapp"/>
+		        <category android:name="com.apptech.first"/>
 		    </intent-filter>
 		</receiver>
 		 
@@ -88,14 +88,14 @@
 		  Application-specific subclass of PushGCMIntentService that will
 		  handle received messages.
 		-->
-		<service android:name="nz.govt.studylink.mslapp.cordova.plugins.push.PushGCMIntentService"/>
+		<service android:name="com.apptech.first.cordova.plugins.push.PushGCMIntentService"/>
 		
 		<!--
 		  Android PooshWoosh notification settings: END
 		-->
         
         <activity
-            android:name="nz.govt.studylink.mslapp.MainActivity"
+            android:name="com.apptech.first.MainActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/app_name" >
             <intent-filter>
@@ -103,7 +103,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
-		        <action android:name="nz.govt.studylink.mslapp.MESSAGE"/>
+		        <action android:name="com.apptech.first.MESSAGE"/>
 		        <category android:name="android.intent.category.DEFAULT"/>
 		    </intent-filter>
         </activity>

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <endpoints xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime" version="2.0">
-  <endpoint name="MSLServiceWS" implementation="nz.govt.studylink.mslapp.server.service.MSLServiceImpl" url-pattern="/MSLServiceWS" />
-  <endpoint name="SuperGoldServiceWS" implementation="nz.govt.supergold.mockbackend.service.SuperGoldServiceImpl" url-pattern="/SuperGoldServiceWS" />
+  <endpoint name="MSLServiceWS" implementation="com.apptech.first.server.service.MSLServiceImpl" url-pattern="/MSLServiceWS" />
 </endpoints>

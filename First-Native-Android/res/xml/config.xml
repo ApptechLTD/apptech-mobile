@@ -52,10 +52,10 @@
     <plugin name="Battery" value="org.apache.cordova.BatteryListener"/>
     <plugin name="SplashScreen" value="org.apache.cordova.SplashScreen"/>
     <plugin name="Echo" value="org.apache.cordova.Echo" />
-    <plugin name="UserSetting" value="nz.govt.studylink.mslapp.cordova.plugins.UserSetting" />
-    <plugin name="HandleDocument" value="nz.govt.studylink.mslapp.HandleDocument"/>
+    <plugin name="UserSetting" value="com.apptech.first.cordova.plugins.UserSetting" />
+    <plugin name="HandleDocument" value="com.apptech.first.HandleDocument"/>
     
-    <plugin name="PushNotification" value="nz.govt.studylink.mslapp.cordova.plugins.push.pushnotifications.PushNotifications" onload="true"/>
+    <plugin name="PushNotification" value="com.apptech.first.cordova.plugins.push.pushnotifications.PushNotifications" onload="true"/>
 </plugins>
 </cordova>
 

@@ -1,9 +1,0 @@
-
-@url backgroundImage backgroundImage;
-
-body {
-	background-color: #f0f0f0;
-	background-image: backgroundImage;
-	background-size: 100px 100px;
-	color: black;
-}

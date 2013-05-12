@@ -1,0 +1,33 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget"
+	xmlns:msl="urn:import:com.apptech.first.client.ui"
+	>
+	<ui:style>
+		
+	</ui:style>
+	
+	<mgwt:LayoutPanel>
+	    <!-- Header Panel -->
+		<mgwt:HeaderPanel ui:field="headerPanel">
+			<mgwt:center>
+				<msl:PageTitle>Mock Login Screen</msl:PageTitle>
+			</mgwt:center>
+			<!-- removed for demo -->
+			<!-- <mgwt:right>
+				<mgwt:HeaderButton ui:field="editButton"
+					roundButton="true" text="Edit"></mgwt:HeaderButton>
+			</mgwt:right> -->
+		</mgwt:HeaderPanel>
+		<!-- for server url setting -->
+	    <g:HTMLPanel ui:field="serverSettingPanel">
+			<mgwt:MTextBox ui:field="serverUrlTextBox"></mgwt:MTextBox>
+		</g:HTMLPanel>
+		<!-- Mock up List of Users -->
+		<mgwt:ScrollPanel ui:field="listOfUsersScrollPanel" scrollingEnabledX="false">
+			<mgwt:CellList ui:field="listOfUsers"></mgwt:CellList>
+		</mgwt:ScrollPanel>
+	</mgwt:LayoutPanel>
+	
+</ui:UiBinder> 

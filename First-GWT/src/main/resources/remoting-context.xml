@@ -8,7 +8,7 @@
 	<bean name="apnsSenderExporter"
 		class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
 		<property name="service" ref="mslApnsSender" />
-		<property name="serviceInterface" value="nz.govt.studylink.mslapp.server.notifications.ApnsSender" />
+		<property name="serviceInterface" value="com.apptech.first.server.notifications.ApnsSender" />
 	</bean>
 
 </beans>

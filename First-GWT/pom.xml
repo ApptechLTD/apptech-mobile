@@ -3,11 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>nz.govt.studylink.mslapp</groupId>
+	<groupId>com.apptech.first</groupId>
 	<artifactId>First</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
-	<name>nz.govt.studylink.mslapp.client.First</name>
+	<name>com.apptech.first.client.First</name>
 
 	<properties>
 		<gwtversion>2.5.0</gwtversion>
@@ -86,7 +86,7 @@
 						<configuration>
 							<runTarget>First.html</runTarget>
 							<copyWebapp>true</copyWebapp>
-							<module>nz.govt.studylink.mslapp.First</module>
+							<module>com.apptech.first.First</module>
 						</configuration>
 						<id>compile gwt</id>
 						<goals>
@@ -214,7 +214,7 @@
 					</execution>
 				</executions>
 				<configuration> 
-					<file>${project.basedir}/target/classes/nz/govt/studylink/mslapp/First.gwt.xml</file>
+					<file>${project.basedir}/target/classes/com/apptech/first/First.gwt.xml</file>
 					<replacements>
 						<replacement>
 							<token>value="retina"</token>
@@ -539,7 +539,7 @@
 									</execution>
 								</executions>
 								<configuration>
-									<file>${project.basedir}/target/classes/nz/govt/studylink/mslapp/First.gwt.xml</file>
+									<file>${project.basedir}/target/classes/com/apptech/first/First.gwt.xml</file>
 									<replacements>
 										<replacement>
 											<token>value="retina"</token>
@@ -595,7 +595,7 @@
 									</execution>
 								</executions>
 								<configuration>
-									<file>${project.basedir}/target/classes/nz/govt/studylink/mslapp/First.gwt.xml</file>
+									<file>${project.basedir}/target/classes/com/apptech/first/First.gwt.xml</file>
 									<replacements>
 										<replacement>
 											<token>value="retina"</token>
@@ -741,7 +741,7 @@
 										<configuration>
 											<runTarget>First.html</runTarget>
 											<copyWebapp>true</copyWebapp>
-											<module>nz.govt.studylink.mslapp.First</module>
+											<module>com.apptech.first.First</module>
 										</configuration>
 										<id>compile gwt</id>
 										<goals>

@@ -15,7 +15,7 @@
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 
 		<property name="packagesToScan"
-			value="nz.govt.studylink.mslapp.server.notifications.model" />
+			value="com.apptech.first.server.notifications.model" />
 		<property name="dataSource" ref="h2DataSource" />
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">

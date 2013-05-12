@@ -13,7 +13,7 @@
     <context:annotation-config />
 
 	<!-- Auto Config annotated classes in these directories -->
-	<context:component-scan base-package="nz.govt.studylink.mslapp.server" />
+	<context:component-scan base-package="com.apptech.first.server" />
 	
 	<import resource="classpath:persistence-context.xml"/>
     
@@ -29,7 +29,7 @@
 	    </route>
 	</camel:camelContext>
 	
-	<bean id="mslApnsSender" class="nz.govt.studylink.mslapp.server.notifications.ApnsSenderImpl">
+	<bean id="mslApnsSender" class="com.apptech.first.server.notifications.ApnsSenderImpl">
 		
 	</bean>
     

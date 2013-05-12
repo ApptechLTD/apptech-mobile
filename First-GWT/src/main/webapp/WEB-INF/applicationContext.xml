@@ -18,7 +18,7 @@
 	<context:annotation-config />
 
 	<!-- Auto Config annotated classes in these directories -->
-	<context:component-scan base-package="nz.govt.studylink.mslapp.server" />
+	<context:component-scan base-package="com.apptech.first.server" />
 	
 	
 	
