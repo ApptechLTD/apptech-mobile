@@ -3,12 +3,12 @@ package com.apptech.first.client.service;
 import java.util.List;
 import java.util.logging.Logger;
 
-
-import com.apptech.first.client.ClientFactory;
 import com.apptech.first.client.First;
 import com.apptech.first.client.cordova.plugins.UserSettingPlugin;
 import com.apptech.first.shared.model.ApplicationsModel;
 import com.apptech.first.shared.model.DashBoardSummaryModel;
+import com.apptech.first.shared.model.JobModel;
+import com.apptech.first.shared.model.JobSearchConditionModel;
 import com.apptech.first.shared.model.MailOnlineModel;
 import com.apptech.first.shared.model.PaymentsModel;
 import com.apptech.first.shared.model.PersonalDetailsModel;
@@ -46,6 +46,10 @@ public interface MSLServiceAsync {
 	
 	void getMailOnlineDetails(Long id, AsyncCallback<MailOnlineModel> callback);
 	void getMailOnlineList(String authToken, AsyncCallback<List<MailOnlineModel>> callback);
+	
+	// Service for searching job basing on the search condition
+	void searchJobList(JobSearchConditionModel condition, AsyncCallback<List<JobModel>> callback);
+	
 	
 	void getApplications(String authToken, Long id, AsyncCallback<ApplicationsModel> callback);
 	

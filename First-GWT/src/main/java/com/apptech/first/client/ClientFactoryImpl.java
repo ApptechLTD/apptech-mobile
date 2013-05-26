@@ -12,6 +12,8 @@ import com.apptech.first.client.views.ApplicationDetailsView;
 import com.apptech.first.client.views.ApplicationDetailsViewImpl;
 import com.apptech.first.client.views.DashboardView;
 import com.apptech.first.client.views.DashboardViewImpl;
+import com.apptech.first.client.views.JobListView;
+import com.apptech.first.client.views.JobListViewImpl;
 import com.apptech.first.client.views.LoginView;
 import com.apptech.first.client.views.LoginViewImpl;
 import com.apptech.first.client.views.MailOnlineDetailsView;
@@ -57,6 +59,10 @@ public class ClientFactoryImpl implements ClientFactory {
     private NotificationPlugin notificationPlugin;
     private UserSettingPlugin userSettingPlugin;
     private PDFPlugin pdfPlugin;
+    
+    // For job search view
+    private JobListView jobListView;
+   // private JobDetailsView jobDetailsView;
 
     @Override
 	public EventBus getEventBus() {
@@ -177,4 +183,14 @@ public class ClientFactoryImpl implements ClientFactory {
 		}
 		return mslStorage;
 	}
+	
+	// Create job list view instance
+	@Override
+	public JobListView getJobListView() {
+		if(jobListView == null){
+			jobListView = new JobListViewImpl();
+		}
+		return jobListView;
+	}
+
 }

@@ -8,6 +8,7 @@ import com.apptech.first.client.util.MSLStorage;
 import com.apptech.first.client.views.AppMenuView;
 import com.apptech.first.client.views.ApplicationDetailsView;
 import com.apptech.first.client.views.DashboardView;
+import com.apptech.first.client.views.JobListView;
 import com.apptech.first.client.views.LoginView;
 import com.apptech.first.client.views.MailOnlineDetailsView;
 import com.apptech.first.client.views.MailOnlineView;
@@ -51,4 +52,7 @@ public interface ClientFactory {
 	PDFPlugin getPDFPlugin();
 
 	MSLStorage getStorage();
+	
+	// Get job list view instance
+	JobListView getJobListView();
 }

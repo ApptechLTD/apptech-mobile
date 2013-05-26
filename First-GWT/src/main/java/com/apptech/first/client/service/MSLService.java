@@ -2,9 +2,10 @@ package com.apptech.first.client.service;
 
 import java.util.List;
 
-
 import com.apptech.first.shared.model.ApplicationsModel;
 import com.apptech.first.shared.model.DashBoardSummaryModel;
+import com.apptech.first.shared.model.JobModel;
+import com.apptech.first.shared.model.JobSearchConditionModel;
 import com.apptech.first.shared.model.MailOnlineModel;
 import com.apptech.first.shared.model.PaymentsModel;
 import com.apptech.first.shared.model.PersonalDetailsModel;
@@ -30,4 +31,9 @@ public interface MSLService extends RemoteService{
 	PersonalDetailsModel getPersonalDetails(String authToken);
 	
 	void setupNotifications(String deviceToken, String authToken, String deviceType) ;
+	
+	// Service for searching job basing on the search condition
+	List<JobModel> searchJobList(JobSearchConditionModel condition);
+	
+	
 }

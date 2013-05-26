@@ -29,6 +29,8 @@ import com.apptech.first.shared.model.AddressModel;
 import com.apptech.first.shared.model.ApplicationsModel;
 import com.apptech.first.shared.model.BankAccountModel;
 import com.apptech.first.shared.model.DashBoardSummaryModel;
+import com.apptech.first.shared.model.JobModel;
+import com.apptech.first.shared.model.JobSearchConditionModel;
 import com.apptech.first.shared.model.MailList;
 import com.apptech.first.shared.model.MailOnlineAttachmentsModel;
 import com.apptech.first.shared.model.MailOnlineModel;
@@ -402,4 +404,17 @@ public class MSLServiceImpl implements MSLService {
 		return personalDetailsModel;
 
 	}
+
+	// Search the job list by the condition
+	@Override
+	public List<JobModel> searchJobList(JobSearchConditionModel condition) {
+		// TODO Auto-generated method stub
+		
+		
+		
+		return null;
+	}
+	
+	
+	
 }
