@@ -17,7 +17,7 @@
 	
 	<import resource="classpath:persistence-context.xml"/>
     
-    <!-- <import resource="classpath:apns-context.xml"/> -->
+    <import resource="classpath:apns-context.xml"/>
 	
     
     <!-- Override Bean definitions for Unit testing here -->
