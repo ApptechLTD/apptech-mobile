@@ -39,7 +39,7 @@
 	<inherits name="com.apptech.first.ui.Components" />
 
 	<!-- Common stuff -->
-	<inherits name="nz.govt.studylink.gwt.common.Common" />
+	<inherits name="com.apptech.first.gwt.common.Common" />
 
 	<!-- Specify the app entry point class. -->
 	<entry-point class='com.apptech.first.client.First' />
