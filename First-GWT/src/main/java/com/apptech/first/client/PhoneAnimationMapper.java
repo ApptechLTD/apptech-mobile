@@ -4,6 +4,7 @@ package com.apptech.first.client;
 import com.apptech.first.client.places.AppMenuPlace;
 import com.apptech.first.client.places.ApplicationDetailsPlace;
 import com.apptech.first.client.places.DashboardPlace;
+import com.apptech.first.client.places.JobListPlace;
 import com.apptech.first.client.places.LoginPlace;
 import com.apptech.first.client.places.MailOnlineDetailsPlace;
 import com.apptech.first.client.places.MailOnlinePlace;
@@ -25,6 +26,10 @@ public class PhoneAnimationMapper implements AnimationMapper {
     	}
     	
     	if (oldPlace instanceof LoginPlace && newPlace instanceof DashboardPlace) {
+            return Animation.SLIDE_UP_REVERSE;
+    	}
+    	
+    	if (oldPlace instanceof LoginPlace && newPlace instanceof JobListPlace) {
             return Animation.SLIDE_UP_REVERSE;
     	}
     	

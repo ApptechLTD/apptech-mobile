@@ -38,6 +38,7 @@ import com.apptech.first.shared.model.PaymentsModel;
 import com.apptech.first.shared.model.PersonalDetailsModel;
 import com.apptech.first.shared.model.UserList;
 import com.apptech.first.shared.model.UserModel;
+import com.mongodb.MongoClient;
 
 @WebService(targetNamespace = "http://com.apptech.first.server.service", name = "MSLServiceWS")
 @SOAPBinding(style = Style.RPC)
@@ -64,6 +65,8 @@ public class MSLServiceImpl implements MSLService {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	
 
 	@Override
 	@WebMethod(operationName = "getDashBoardSummaryWS")
@@ -410,8 +413,56 @@ public class MSLServiceImpl implements MSLService {
 	public List<JobModel> searchJobList(JobSearchConditionModel condition) {
 		// TODO Auto-generated method stub
 		
+		List<JobModel> jobs = getMockJobList("Kina1");
+		
+		return jobs;
+	}
+	
+	static List<JobModel> getMockJobList(String authToken) {
 		
 		
+		
+		String fileName = getFilepath(authToken + ".xls");
+		try {
+			
+			//MongoClient mongo = new MongoClient("localhost", 27017);
+			
+			FileInputStream fis = new FileInputStream(fileName);
+
+			final HSSFWorkbook wb = new HSSFWorkbook(fis);
+
+			final ExcelParser<PaymentsModel> parser = new ExcelParser<PaymentsModel>(
+					1);
+
+			final Map<Integer, String> map = new HashMap<Integer, String>();
+			map.put(new Integer(1), "id");
+			map.put(new Integer(2), "type");
+			map.put(new Integer(3), "date");
+			map.put(new Integer(4), "amount");
+			map.put(new Integer(5), "banckAccount");
+
+			List<PaymentsModel> paymentList = parser.getObjects(
+					wb.getSheetAt(0), PaymentsModel.class, map);
+			
+			List<JobModel> list = new ArrayList<JobModel>();
+			
+			for (PaymentsModel pm : paymentList)
+			{
+				JobModel m = new JobModel();
+				
+				m.setRole(pm.getType());
+				m.setDescription(pm.getBanckAccount() );
+				m.setCompany("AppTech");
+				m.setReleaseDate(pm.getDate());
+				m.setSalary(pm.getAmount().toString());
+				m.setTitle("iOS developer");
+				list.add(m);
+			}
+
+			return list;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 	

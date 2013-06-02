@@ -4,7 +4,6 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 import com.apptech.first.client.cordova.plugins.UserSettingPlugin;
 import com.apptech.first.client.cordova.plugins.UserSettingPlugin.UserSettingPluginCallback;
 import com.apptech.first.client.events.LoginSuccessEvent;
@@ -15,7 +14,7 @@ import com.apptech.first.client.events.NotificationArrivedEvent;
 import com.apptech.first.client.events.NotificationArrivedEventHandler;
 import com.apptech.first.client.places.AppMenuPlace;
 import com.apptech.first.client.places.ApplicationDetailsPlace;
-import com.apptech.first.client.places.DashboardPlace;
+import com.apptech.first.client.places.JobListPlace;
 import com.apptech.first.client.places.LoginPlace;
 import com.apptech.first.client.places.MailOnlinePlace;
 import com.apptech.first.shared.model.UserModel;
@@ -23,11 +22,11 @@ import com.apptech.first.theme.client.CustomTheme;
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-import com.google.web.bindery.event.shared.EventBus;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.place.shared.PlaceHistoryHandler;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.web.bindery.event.shared.EventBus;
 import com.googlecode.gwtphonegap.client.PhoneGapAvailableEvent;
 import com.googlecode.gwtphonegap.client.PhoneGapAvailableHandler;
 import com.googlecode.mgwt.mvp.client.AnimatableDisplay;
@@ -216,16 +215,19 @@ public class First implements EntryPoint {
 				if (currentNotificationData == null)
 				{
 					// goto dashboard
-					DashboardPlace place = new DashboardPlace();
-					clientFactory.getPlaceController().goTo(place);
+					//DashboardPlace place = new DashboardPlace();
+					//clientFactory.getPlaceController().goTo(place);
 
+					JobListPlace place = new JobListPlace();
+					clientFactory.getPlaceController().goTo(place);
+					
 					// user selected.
-					try {
-						clientFactory.getNotificationPlugin().registerDevice(true,
-								true, false, "6DFBA-FE4D1", "MyStudyLink", "472407715256");
-					} catch (Exception e) {
-						logger.info("onLoginSuccess() Error calling registerDevice : " + e);
-					}
+					//try {
+						//clientFactory.getNotificationPlugin().registerDevice(true,
+						//		true, false, "6DFBA-FE4D1", "MyStudyLink", "472407715256");
+//					} catch (Exception e) {
+//						logger.info("onLoginSuccess() Error calling registerDevice : " + e);
+//					}
 				}
 				else
 				{

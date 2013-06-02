@@ -37,12 +37,23 @@ public class JobSummaryCell extends FloatingCell<JobModel> {
 	protected SafeHtml getCellContents(JobModel model) {
 		// format data to display
 		String dateFmt = UIUtil.shortDateFmt(model.getReleaseDate());
+		String titleStyle = style.jobTitle();
+		String descriptionStyle = style.jobDescription();
+		String addressStyle = style.jobAddress();
+		String dateStyle = style.jobReleaseDate();
 		
 		// create the content using the template
-		return TEMPLATE.content(style.jobTitle(), model.getTitle(),
-				style.jobDescription(), model.getDescription(),
-				style.jobAddress(), model.getAddress().toString(),
-				style.jobReleaseDate(),  dateFmt);
+		SafeHtml sh =  TEMPLATE.content(titleStyle, model.getTitle(),
+				descriptionStyle, model.getDescription(),
+				addressStyle, "Wellington CBD",//model.getAddress().toString()
+				dateStyle,  dateFmt);
+		
+//		SafeHtml sh =  TEMPLATE.content("123", "123",
+//				"123", "123",
+//				"123", "Wellington CBD",//model.getAddress().toString()
+//				"123",  "123");
+		
+		return sh;
 	}
 
 	@Override

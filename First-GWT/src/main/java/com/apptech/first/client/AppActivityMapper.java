@@ -4,6 +4,7 @@ package com.apptech.first.client;
 import com.apptech.first.client.activities.AppMenuActivity;
 import com.apptech.first.client.activities.ApplicationDetailsActivity;
 import com.apptech.first.client.activities.DashboardActivity;
+import com.apptech.first.client.activities.JobListActivity;
 import com.apptech.first.client.activities.LoginActivity;
 import com.apptech.first.client.activities.MailOnlineActivity;
 import com.apptech.first.client.activities.MailOnlineDetailsActivity;
@@ -13,6 +14,7 @@ import com.apptech.first.client.activities.PersonalDetailsUpdateActivity;
 import com.apptech.first.client.places.AppMenuPlace;
 import com.apptech.first.client.places.ApplicationDetailsPlace;
 import com.apptech.first.client.places.DashboardPlace;
+import com.apptech.first.client.places.JobListPlace;
 import com.apptech.first.client.places.LoginPlace;
 import com.apptech.first.client.places.MailOnlineDetailsPlace;
 import com.apptech.first.client.places.MailOnlinePlace;
@@ -70,6 +72,10 @@ public class AppActivityMapper implements ActivityMapper {
 		
 		if(place instanceof MailOnlineDetailsPlace){
 			return new MailOnlineDetailsActivity((MailOnlineDetailsPlace) place, clientFactory);
+		}
+		
+		if(place instanceof JobListPlace){
+			return new JobListActivity((JobListPlace) place, clientFactory);
 		}
 		
         return null;

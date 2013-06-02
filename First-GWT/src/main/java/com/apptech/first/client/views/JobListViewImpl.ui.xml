@@ -24,17 +24,6 @@
 			color: #999;
 			padding: 10px;
 		}
-		
-		.jobTypeAndDate {
-			color: grey;
-			margin-left: 20px;
-		}
-		
-		.jobTitle {
-			color: black;
-			width: 240px;
-			margin-left: 20px;
-		}
 
 		.icon {
 			height: 30px;
@@ -72,6 +61,33 @@
 			padding-top: 10px;
 			text-align: center;
 		}
+
+		.jobDescription {
+			color: black;
+			width: 240px;
+			margin-left: 20px;
+		}
+
+		.jobAddress {
+			color: grey;
+			margin-left: 20px;
+		}
+		
+		.jobReleaseDate {
+			color: grey;
+			margin-left: 20px;
+		}
+		
+		.jobTitle {
+			background: #7DBA00;
+			color: white;
+			padding: 5px;
+			font-weight: bold;
+			padding-left: 10px;
+			margin-bottom: 6px;
+		}
+
+
 		
 	</ui:style>
 
